@@ -31,7 +31,7 @@ function loadData(event) {
 }
 ;
 function streetView() {
-    var streetviewUrl = 'http://maps.googleapis.com/maps/api/js?key=AIzaSyDRk7pCAH2RoTaUHmju6wAckdC0yl4q4U&streetview?size=600x400&location=' + address + '';
+    var streetviewUrl = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + ' &key=AIzaSyDpX8jtCIAjYYY8Wj8XlgYh6L-mo0zaMCY';
     $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
 }
 ;
