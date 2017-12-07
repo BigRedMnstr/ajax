@@ -20,22 +20,18 @@ function loadData(event) {
     streetStr = $('#street').val();
     cityStr = $('#city').val();
     address = streetStr + ', ' + cityStr;
-    
+
     $greeting.text('So, you want to live at ' + address + '?');
 
     streetView();
     NYTimes();
     Wikipedia();
+};
 
-
-}
-;
 function streetView() {
     var streetviewUrl = 'https://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + ' &key=AIzaSyDpX8jtCIAjYYY8Wj8XlgYh6L-mo0zaMCY';
     $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
-}
-;
-
+};
 
 // load nytimes
 function NYTimes() {
@@ -52,15 +48,12 @@ function NYTimes() {
                     '<a href="' + article.web_url + '">' + article.headline.main + '</a>' +
                     '<p>' + article.snippet + '</p>' +
                     '</li>');
-        }
-        ;
+        };
 
     }).error(function (e) {
         $nytHeaderElem.text('New York Times Articles Could Not Be Loaded');
     });
-}
-;
-
+};
 
 // load wikipedia data
 function Wikipedia() {
@@ -89,7 +82,6 @@ function Wikipedia() {
     });
 
     return false;
-}
-;
+};
 
 $('#form-container').submit(loadData);
