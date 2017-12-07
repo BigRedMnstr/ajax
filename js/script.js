@@ -9,16 +9,19 @@ var streetStr;
 var cityStr;
 var address;
 
-function loadData() {
+function loadData(event) {
+
+    event.preventDefault();
+
     // clear out old data before new request
     $wikiElem.text("");
     $nytElem.text("");
 
-    $greeting.text('So, you want to live at ' + address + '?');
-
     streetStr = $('#street').val();
     cityStr = $('#city').val();
     address = streetStr + ', ' + cityStr;
+    
+    $greeting.text('So, you want to live at ' + address + '?');
 
     streetView();
     NYTimes();
@@ -28,7 +31,7 @@ function loadData() {
 }
 ;
 function streetView() {
-    var streetviewUrl = 'http://maps.googleapis.com/maps/api/streetview?size=600x400&location=' + address + '';
+    var streetviewUrl = 'http://maps.googleapis.com/maps/api/js?key=AIzaSyDRk7pCAH2RoTaUHmju6wAckdC0yl4q4U&streetview?size=600x400&location=' + address + '';
     $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
 }
 ;
